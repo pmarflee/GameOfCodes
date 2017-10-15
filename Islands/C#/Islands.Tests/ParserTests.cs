@@ -81,6 +81,23 @@ namespace Islands.Tests
 
                 yield return new object[]
                 {
+                    "500 2000 1500 10 500 9000 100 200 400",
+                    new[]
+                    {
+                        new Resource(ResourceType.Water, 500),
+                        new Resource(ResourceType.Wood,  2000),
+                        new Resource(ResourceType.Coal, 1500),
+                        new Resource(ResourceType.Iron, 10),
+                        new Resource(ResourceType.Stone, 500),
+                        new Resource(ResourceType.Obsidian, 9000),
+                        new Resource(ResourceType.Copper, 100),
+                        new Resource(ResourceType.Gold, 200),
+                        new Resource(ResourceType.Silver, 400)
+                    }
+                };
+
+                yield return new object[]
+                {
                     "1000 1000 2000 10 500 100 100 200 4000",
                     new[]
                     {

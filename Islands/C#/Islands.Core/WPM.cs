@@ -14,6 +14,15 @@ namespace Islands.Core
             _priorities = priorities;
         }
 
+        public IEnumerable<int> Rank(IEnumerable<IEnumerable<Resource>> islands)
+        {
+            return islands
+                .Select((island, index) => new { Island = island, Index = index })
+                .OrderByDescending(pair => pair.Island, new IslandComparer(this))
+                .Select(pair => pair.Index)
+                .ToList();
+        }
+
         public Double Calculate(IEnumerable<Resource> island1, IEnumerable<Resource> island2)
         {
             return island1
@@ -27,6 +36,25 @@ namespace Islands.Core
             var (type, weighting) = priority;
 
             return Math.Pow((island1.Quantity / island2.Quantity), weighting);
+        }
+
+        private class IslandComparer : IComparer<IEnumerable<Resource>>
+        {
+            private readonly WPM _wpm;
+
+            public IslandComparer(WPM wpm)
+            {
+                _wpm = wpm;
+            }
+
+            public int Compare(IEnumerable<Resource> island1, IEnumerable<Resource> island2)
+            {
+                var result = _wpm.Calculate(island1, island2);
+
+                if (result > 1) return 1;
+                else if (result < 1) return -1;
+                else return 0;
+            }
         }
     }
 }

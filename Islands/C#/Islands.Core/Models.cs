@@ -29,7 +29,7 @@ namespace Islands.Core.Models
         public Double Quantity { get; }
 
         public static IEnumerable<ValueTuple<ResourceType, Double>> Priorities
-            = new List<ValueTuple<ResourceType, Double>>
+            = new[] 
             {
                 (ResourceType.Water, 0.3),
                 (ResourceType.Wood, 0.15),
@@ -40,7 +40,7 @@ namespace Islands.Core.Models
                 (ResourceType.Copper, 0.05),
                 (ResourceType.Gold, 0.03),
                 (ResourceType.Silver, 0.07)
-            }.AsReadOnly();
+            };
 
         public override bool Equals(object obj)
         {
