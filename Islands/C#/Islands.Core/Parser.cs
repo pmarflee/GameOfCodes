@@ -11,7 +11,7 @@ namespace Islands.Core
             var types = Enum.GetValues(typeof(ResourceType)).Cast<ResourceType>();
             var values = input.Split(' ');
 
-            return types.Zip(values, (type, value) => new Resource(type, Single.Parse(value))).ToArray();
+            return types.Zip(values, (type, value) => new Resource(type, Double.Parse(value))).ToArray();
         }
     }
 }

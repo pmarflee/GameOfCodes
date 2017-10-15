@@ -18,7 +18,7 @@ namespace Islands.Core.Models
 
     public class Resource
     {
-        public Resource(ResourceType type, Single quantity)
+        public Resource(ResourceType type, Double quantity)
         {
             Type = type;
             Quantity = quantity;
@@ -26,20 +26,20 @@ namespace Islands.Core.Models
 
         public ResourceType Type { get; }
 
-        public Single Quantity { get; }
+        public Double Quantity { get; }
 
-        public static IReadOnlyCollection<ValueTuple<ResourceType, Single>> Priorities
-            = new List<ValueTuple<ResourceType, Single>>
+        public static IEnumerable<ValueTuple<ResourceType, Double>> Priorities
+            = new List<ValueTuple<ResourceType, Double>>
             {
-                (ResourceType.Water, 0.3f),
-                (ResourceType.Wood, 0.15f),
-                (ResourceType.Coal, 0.1f),
-                (ResourceType.Iron, 0.05f),
-                (ResourceType.Stone, 0.1f),
-                (ResourceType.Obsidian, 0.15f),
-                (ResourceType.Copper, 0.05f),
-                (ResourceType.Gold, 0.03f),
-                (ResourceType.Silver, 0.07f)
+                (ResourceType.Water, 0.3),
+                (ResourceType.Wood, 0.15),
+                (ResourceType.Coal, 0.1),
+                (ResourceType.Iron, 0.05),
+                (ResourceType.Stone, 0.1),
+                (ResourceType.Obsidian, 0.15),
+                (ResourceType.Copper, 0.05),
+                (ResourceType.Gold, 0.03),
+                (ResourceType.Silver, 0.07)
             }.AsReadOnly();
 
         public override bool Equals(object obj)
