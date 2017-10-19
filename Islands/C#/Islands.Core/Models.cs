@@ -28,7 +28,7 @@ namespace Islands.Core.Models
 
         public Double Quantity { get; }
 
-        public static IEnumerable<ValueTuple<ResourceType, Double>> Priorities
+        public static IEnumerable<(ResourceType, Double)> Priorities
             = new[] 
             {
                 (ResourceType.Water, 0.3),
